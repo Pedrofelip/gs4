@@ -35,9 +35,7 @@ export default function Consulta() {
 
     function cadastrarConsulta() {
 
-        const dadosConsulta = {
-            condMedica: condicaoMedica,
-            medUtilizados: medicamentosUtilizados,
+        const dadosEndereco = {
             cep: cep,
             localidade: estado,
             logradouro: rua,
@@ -47,12 +45,27 @@ export default function Consulta() {
             complementoCasa: complementoCasa
         };
 
-        console.log(dadosConsulta)
+        const dadosPerguntas = {
+            condMedica: condicaoMedica,
+            medUtilizados: medicamentosUtilizados
+        }
 
-        fetch('urlapi', {
+
+        fetch('http://localhost:3000/', {
             method: 'POST',
             headers: { "Content-type": "application/json" },
-            body: JSON.stringify(dadosConsulta)
+            body: JSON.stringify(dadosEndereco)
+        }).then((resp) => resp.json())
+            .then((data) => {
+                console.log(data)
+                console.log('consulta cadastrada')
+            })
+            .catch((error) => console.log(error))
+
+        fetch('http://localhost:3000/', {
+            method: 'POST',
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(dadosPerguntas)
         }).then((resp) => resp.json())
             .then((data) => {
                 console.log(data)
@@ -103,7 +116,7 @@ export default function Consulta() {
                             <div className={styles.grid_inputs}>
                                 <div className={styles.input}>
                                     <label htmlFor="">CEP</label>
-                                    <input type="text" onChange={checkCEP} maxLength={8} />
+                                    <input type="text" onBlur={checkCEP} maxLength={8} />
                                 </div>
                                 <div className={styles.input}>
                                     <label htmlFor="">Estado</label>

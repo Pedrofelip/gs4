@@ -11,17 +11,15 @@ export default function CadastroPage() {
     const[email, setEmail] = useState("")
     const[senha, setSenha] = useState("")
     const[cpf, setCpf] = useState("")
-    const[idade, setIdade] = useState("")
 
 
     function cadastrarUsuario() {
 
         const cadosUsuario = {
-            nome: nome,
-            email: email,
-            senha: senha,
-            cpf: cpf,
-            idade: idade,
+            nome_usuario: nome,
+            email_usuario: email,
+            cpf_usuario: cpf,
+            senha_usuario: senha,
         };
 
         console.log(cadosUsuario)
@@ -52,10 +50,6 @@ export default function CadastroPage() {
 
     const handleCpf = (event: any) => {
         setCpf(event.target.value)
-    }
-
-    const handleIdade = (event: any) => {
-        setIdade(event.target.value)
     }
 
     return (
@@ -89,10 +83,6 @@ export default function CadastroPage() {
                             <div className={styles.input_cadastro}>
                                 <label htmlFor="">CPF</label>
                                 <input type="text" onChange={handleCpf}/>
-                            </div>
-                            <div className={styles.input_cadastro}>
-                                <label htmlFor="">Idade</label>
-                                <input type="text" onChange={handleIdade}/>
                             </div>
                             <div className={styles.btn_cadastro}>
                             <p className={styles.redirect}>Já possui uma conta? <Link href="/login" className={styles.link_redirect}>faça o login</Link></p>
