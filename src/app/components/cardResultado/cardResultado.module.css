@@ -29,6 +29,6 @@
 
 .grid_card > p{
     color: #024959;
-    font-weight: bold;
     text-transform: capitalize;
+    font-size: 20px;
 }

@@ -24,9 +24,8 @@
 }
 
 .grid_card > h3{
-
-}
-
-.grid_card > p{
-    
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 22px;
+    color: #024959;
 }

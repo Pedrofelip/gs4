@@ -1,8 +1,63 @@
+'use client'
+
 import styles from './cadastro.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function CadastroPage() {
+
+    const[nome, setNome] = useState("")
+    const[email, setEmail] = useState("")
+    const[senha, setSenha] = useState("")
+    const[cpf, setCpf] = useState("")
+    const[idade, setIdade] = useState("")
+
+
+    function cadastrarUsuario() {
+
+        const cadosUsuario = {
+            nome: nome,
+            email: email,
+            senha: senha,
+            cpf: cpf,
+            idade: idade,
+        };
+
+        console.log(cadosUsuario)
+
+        fetch('urlapi', {
+            method: 'POST',
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(cadosUsuario)
+        }).then((resp) => resp.json())
+            .then((data) => {
+                console.log(data)
+                console.log('usuario cadastrado')
+            })
+            .catch((error) => console.log(error))
+    }
+
+    const handleName = (event: any) => {
+        setNome(event.target.value)
+    }
+
+    const handleEmail = (event: any) => {
+        setEmail(event.target.value)
+    }
+    
+    const handlePsw = (event: any) => {
+        setSenha(event.target.value)
+    }
+
+    const handleCpf = (event: any) => {
+        setCpf(event.target.value)
+    }
+
+    const handleIdade = (event: any) => {
+        setIdade(event.target.value)
+    }
+
     return (
         <main className={styles.main}>
             <div className={styles.fundo_cadastro}>
@@ -21,27 +76,27 @@ export default function CadastroPage() {
                         <form action="" className={styles.form_cadastro}>
                             <div className={styles.input_cadastro}>
                                 <label htmlFor="">Nome</label>
-                                <input type="text" />
+                                <input type="text" onChange={handleName}/>
                             </div>
                             <div className={styles.input_cadastro}>
                                 <label htmlFor="">Email</label>
-                                <input type="email" />
+                                <input type="email" onChange={handleEmail}/>
                             </div>
                             <div className={styles.input_cadastro}>
                                 <label htmlFor="">Senha</label>
-                                <input type="password" />
+                                <input type="password" onChange={handlePsw}/>
                             </div>
                             <div className={styles.input_cadastro}>
                                 <label htmlFor="">CPF</label>
-                                <input type="text" />
+                                <input type="text" onChange={handleCpf}/>
                             </div>
                             <div className={styles.input_cadastro}>
                                 <label htmlFor="">Idade</label>
-                                <input type="text" />
+                                <input type="text" onChange={handleIdade}/>
                             </div>
                             <div className={styles.btn_cadastro}>
                             <p className={styles.redirect}>Já possui uma conta? <Link href="/login" className={styles.link_redirect}>faça o login</Link></p>
-                                <button>cadastrar</button>
+                                <button onClick={cadastrarUsuario}>cadastrar</button>
                             </div>
                         </form>
                     </div>

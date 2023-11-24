@@ -10,10 +10,10 @@ export default function Footer() {
                     <h3>participantes:</h3>
                     <div className={styles.lista_cards}>
                         <Card nome ='Pedro Felipe' funcao ='Front-end' rm='RM98093'></Card>
-                        <Card nome ='Pedro Felipe' funcao ='Front-end' rm='RM98093'></Card>
-                        <Card nome ='Pedro Felipe' funcao ='Front-end' rm='RM98093'></Card>
-                        <Card nome ='Pedro Felipe' funcao ='Front-end' rm='RM98093'></Card>
-                        <Card nome ='Pedro Felipe' funcao ='Front-end' rm='RM98093'></Card>
+                        <Card nome ='Igor Miguel' funcao ='Inteligencia Artificial' rm='RM99495'></Card>
+                        <Card nome ='João Pedro' funcao ='TX & BD' rm='RM98442'></Card>
+                        <Card nome ='Gustavo René' funcao ='JAVA - Back-end' rm='RM551288'></Card>
+                        <Card nome ='Kaue Matheus' funcao ='Python' rm='RM551732'></Card>
                     </div>
                 </div>
                 <div>

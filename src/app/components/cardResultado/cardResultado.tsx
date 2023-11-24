@@ -5,11 +5,11 @@ export default function CardResultado(props : any) {
         <article className={styles.fundo_card}>
             <div className={styles.grid_card}>
                 <div className={styles.img_user}></div>
-                <p>nome: <br />{props.nome}</p>
-                <p>resultado: <br />{props.resultado}</p>
-                <p>historico: <br />{props.historico}</p>
-                <p>cidade: <br />{props.cidade}</p>
-                <p>idade: <br />{props.idade}</p>
+                <p><b>nome: </b>{props.nome}</p>
+                <p><b>resultado:</b> {props.resultado}</p>
+                <p><b>historico:</b> {props.historico}</p>
+                <p><b>cidade:</b> {props.cidade}</p>
+                <p><b>resultado:</b> {props.idade}</p>
             </div>
         </article>
     )
